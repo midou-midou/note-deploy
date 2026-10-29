@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://mimonarchrd.gitee.io/sitemap.xml

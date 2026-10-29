@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+
+<title>Go+run+++Go+build | 集合</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="canonical" href="http://mimonarchrd.gitee.io/passages/midou-notes/Go/Go+run+++Go+build/">
+
+<meta name="description" content="Go run &#x2F; Go buildGo run：这是一个Go命令的提供的工具链，包括打包，编译，运行这些步骤 Textgo run main.go 如果是在一个包下直接运行上面的命令，只会对你指定的文件进行打包、编译、运行的操作比如，main.go中有使用在main package中的其他.go文件中的方法，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go+run+++Go+build">
+<meta property="og:url" content="http://mimonarchrd.gitee.io/passages/midou-notes/Go/Go+run+++Go+build/">
+<meta property="og:site_name" content="集合">
+<meta property="og:description" content="Go run &#x2F; Go buildGo run：这是一个Go命令的提供的工具链，包括打包，编译，运行这些步骤 Textgo run main.go 如果是在一个包下直接运行上面的命令，只会对你指定的文件进行打包、编译、运行的操作比如，main.go中有使用在main package中的其他.go文件中的方法，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-14T13:01:35.000Z">
+<meta property="article:modified_time" content="2026-10-28T14:52:41.857Z">
+<meta property="article:author" content="米豆">
+<meta property="article:tag" content="Go">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Go+run+++Go+build","description":"Go run &#x2F; Go buildGo run：这是一个Go命令的提供的工具链，包括打包，编译，运行这些步骤 Textgo run main.go 如果是在一个包下直接运行上面的命令，只会对你指定的文件进行打包、编译、运行的操作比如，main.go中有使用在main package中的其他.go文件中的方法，","url":"http://mimonarchrd.gitee.io/passages/midou-notes/Go/Go+run+++Go+build/","inLanguage":"zh-CN","author":{"@type":"Person","name":"米豆"},"isPartOf":{"@type":"WebSite","name":"集合","url":"http://mimonarchrd.gitee.io"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://mimonarchrd.gitee.io/passages/midou-notes/Go/Go+run+++Go+build/"},"datePublished":"2025-10-14T13:01:35.000Z","dateModified":"2026-10-28T14:52:41.857Z"}</script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body>
+  <div class="page-wrapper">
+    <header class="site-header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <a href="/" class="brand-mark" aria-label="集合">
+<svg class="brand-logo" viewBox="51.5 213.5 363 143" fill="none" aria-hidden="true" focusable="false" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <mask id="bm-brush" maskUnits="userSpaceOnUse" x="51.5" y="213.5" width="363" height="143">
+      <rect x="51.5" y="213.5" width="363" height="143" fill="#000"/>
+      <path id="bm-pen" class="brush" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0" d="M78.00 292.00 C78.00 292.01 74.88 301.84 73.40 306.60 C71.99 311.13 70.14 316.23 69.30 319.90 C68.72 322.43 67.68 326.05 68.30 326.40 C68.84 326.70 70.71 324.56 72.10 323.20 C74.10 321.24 76.48 317.73 78.90 315.50 C81.17 313.41 83.68 310.93 86.10 310.10 C88.06 309.43 90.32 309.25 92.00 310 C93.79 310.80 94.99 313.38 96.40 315.10 C97.79 316.78 98.75 319.51 100.40 320.20 C101.88 320.82 103.89 320.33 105.60 319.60 C107.74 318.69 109.70 315.57 111.90 314.40 C113.82 313.37 116.08 312.13 117.90 312.60 C119.92 313.12 121.59 315.94 123.30 318.10 C125.29 320.62 126.69 324.52 128.90 327.00 C130.94 329.29 133.28 331.82 135.90 332.60 C138.46 333.36 141.67 332.78 144.40 331.80 C147.43 330.71 150.40 328.08 153.10 325.90 C155.76 323.74 158.16 320.41 160.50 318.80 C162.20 317.63 164.11 316.06 165.40 316.50 C166.82 316.98 167.39 320.15 168.40 322.30 C169.62 324.89 170.19 328.82 172.10 331.00 C173.88 333.03 176.48 334.77 179.20 335.20 C182.36 335.71 186.45 334.21 190.10 332.80 C194.25 331.19 198.54 328.34 202.60 325.60 C206.85 322.74 210.88 319.06 215.00 315.90 C219.04 312.80 223.10 309.51 227.10 306.80 C230.79 304.30 234.61 302.34 238.10 300.10 C241.36 298.01 244.64 296.51 247.40 293.80 C250.45 290.81 252.89 286.88 255.30 282.60 C258.14 277.56 260.49 271.08 262.90 265.20 C265.33 259.28 267.80 251.92 269.80 247.20 C271.13 244.07 273.03 239.38 273.40 239.50 C273.79 239.62 272.64 245.09 271.80 248.90 C270.46 254.96 267.55 264.08 265.40 272.20 C263.06 281.05 260.18 291.17 258.30 300 C256.61 307.91 254.75 316.21 254.40 322.70 C254.14 327.53 253.70 332.62 255.20 335.40 C256.24 337.33 258.19 338.67 260.10 339.10 C262.20 339.57 265.03 338.52 267.40 337.60 C269.97 336.60 272.63 334.97 274.90 333.10 C277.25 331.16 279.43 328.69 281.20 326.10 C283.00 323.47 284.53 320.36 285.60 317.40 C286.62 314.59 287.72 311.46 287.60 308.80 C287.49 306.44 286.87 303.85 285.40 302.20 C283.82 300.43 280.61 299.03 278.10 298.80 C275.61 298.57 271.70 299.14 270.40 300.80 C269.09 302.47 269.27 306.40 270.30 308.80 C271.50 311.59 275.34 315.35 278.20 316.10 C280.70 316.75 284.04 315.79 286.20 314.20 C288.65 312.40 289.69 307.98 291.60 305.10 C293.43 302.33 295.07 298.77 297.40 297.20 C299.36 295.88 302.14 295.01 304.10 295.50 C306.04 295.99 307.98 298.09 309.10 300.10 C310.39 302.41 310.80 305.85 310.80 308.90 C310.80 312.20 309.98 315.98 308.80 319.20 C307.63 322.38 305.75 325.72 303.80 328.10 C302.14 330.12 299.75 332.21 298.20 332.90 C297.33 333.29 295.97 333.39 295.90 333.20 C295.81 332.95 297.98 331.60 299.40 330.90 C301.31 329.96 304.04 329.08 306.50 328.40 C309.06 327.70 311.85 327.46 314.50 326.80 C317.18 326.13 319.97 325.69 322.50 324.40 C325.23 323.01 327.85 320.66 330.20 318.50 C332.51 316.38 334.53 313.00 336.50 311.60 C337.79 310.68 339.40 309.56 340.20 310 C341.18 310.54 340.97 313.78 341.20 316.00 C341.48 318.71 341.09 322.35 341.60 325.10 C342.05 327.48 342.42 330.52 343.80 331.60 C344.97 332.51 347.05 332.54 348.70 332.00 C350.91 331.28 353.23 328.40 355.40 326.20 C357.81 323.76 360.05 320.04 362.40 317.90 C364.26 316.20 366.45 313.76 368.00 314.00 C369.43 314.23 370.54 316.70 371.50 318.60 C372.74 321.05 372.95 325.12 374.20 327.80 C375.30 330.16 376.50 333.07 378.30 334.00 C379.89 334.82 382.23 334.46 384.10 333.80 C386.28 333.03 388.51 330.67 390.40 329.10 C392.07 327.71 394.01 325.18 394.90 324.90 C395.20 324.80 395.52 324.85 395.60 325.00 C395.74 325.29 394.33 327.05 394.40 327.10 C394.46 327.15 395.16 326.34 395.70 325.70 C396.74 324.46 399.99 320.01 400 320" stroke="#fff" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect class="settle" x="51.5" y="213.5" width="363" height="143" fill="#fff"/>
+    </mask>
+  </defs>
+  <path class="ink" d="M96.9 340.4Q95.1 340.4 94.1 337.4V333.6Q94.1 308.9 87.7 308.9Q83.5 308.9 75 322.5Q72.6 326 70.3 329.6Q68 333.2 65.8 336.8Q64.6 337.2 64 337.2Q62 337.2 62 334.2V333.6L64.4 325.6Q68.6 313.1 70.6 305.6Q72.6 298.1 72.6 295.7Q72.6 294.9 72.4 294.7Q76.4 291.1 79.9 291.1Q81.7 291.1 81.3 292.1L77.8 312.3Q79.7 309.5 85.9 305.3Q89.1 303.1 91.4 302.1Q93.7 301.1 95.1 301.1Q101.3 301.1 102.1 326Q104.3 322.1 108 316.1Q111.7 310.1 116.6 302.3Q119.4 298.5 122.6 298.5Q125.6 298.5 126.2 302.3Q126.8 310.1 127.4 316.8Q128 323.5 130 327.4Q132 331.4 136.8 331.6Q142.8 331.6 148.6 327.1Q154.5 322.7 159.3 316.3Q160.3 314.7 161.3 314.7Q161.9 314.7 161.9 316.3Q161.9 316.7 161.1 318Q160.3 319.3 159.9 319.7Q156.5 324.6 152 329.3Q147.5 334 142.6 336.9Q137.6 339.8 132.6 339.8Q125.2 339.8 121.8 331.8Q118.4 323.9 117.6 309.3Q113.4 313.1 108.7 322.9Q105.7 328.4 103.7 332.1Q101.7 335.8 100.7 337.4Q98.7 340.4 96.9 340.4ZM177.5 276.8Q175.1 276.8 173.1 274.6Q171.1 272.4 171.1 270Q171.1 264.4 177.3 264.4Q183.2 264.4 183.2 270.2Q183.2 276.8 177.5 276.8ZM174.9 339Q168.1 339 163.6 334.3Q159.1 329.6 159.1 320.7Q159.1 309.7 165.1 298.3Q167.3 294.1 172.7 294.1Q175.9 294.1 175.9 296.1Q175.9 296.7 175.3 297.9Q168.3 311.3 168.3 320.9Q168.3 327.8 170.8 331Q173.3 334.2 177.7 334.2Q184.6 334.2 191.6 328.9Q198.6 323.7 205.2 316.1Q205.8 315.1 207 315.1Q207.8 315.1 207.8 315.9Q207.8 316.5 207.1 317.6Q206.4 318.7 205.8 319.7Q203.2 323.1 199.6 326.6Q196 330.2 191.2 333.4Q187.4 336 183.1 337.5Q178.9 339 174.9 339ZM209.6 338.4Q200.8 338.4 200.8 328.6Q200.8 316.9 216.9 304.3Q231.9 292.5 244.7 292.5Q245.3 292.5 246.2 292.7Q247.1 292.9 247.7 292.9Q248 292.9 249.8 287.6L265.8 242.9Q267.2 239.1 269.2 233.7Q271.2 228.3 274.2 221.4Q276 218 276.8 218Q281.4 218 281.4 222Q281.4 224.7 279.7 230.7Q278 236.7 274.4 245.7L264.8 269.8Q261.4 278.6 258.9 286.5Q256.4 294.3 254.6 301.1Q252.6 308.3 252.6 318.5Q252.6 334.4 260.2 334.4Q264.8 334.4 270.7 330.6Q276.6 326.8 284.7 316.3Q285.1 315.9 286 314.9Q286.9 313.9 287.1 313.9Q287.7 313.9 287.7 314.7Q287.7 315.9 287.1 317.2Q286.5 318.5 285.5 319.7Q278.2 330 271.2 334.1Q264.2 338.2 258 338.2Q243.9 338.2 243.5 310.9Q242.1 314.1 238.2 318.2Q234.3 322.3 228.3 327.4Q215.5 338.4 209.6 338.4ZM214.5 331.4Q220.3 331.4 229.1 322.7Q232.5 319.3 235.2 316Q237.9 312.7 240.5 309.1Q242.5 305.7 244.1 302.6Q245.7 299.5 246.7 296.5Q245.9 296.3 244.9 296.2Q243.9 296.1 242.5 296.1Q224.3 296.1 213.2 316.3Q209.8 321.9 209.8 326.4Q209.8 331.4 214.5 331.4ZM290.1 341Q282.7 341 282.7 330.2Q282.7 327.4 283.3 324.1Q283.9 320.7 284.9 316.9Q286.9 309.9 290.9 301.1Q296.9 288.8 300.9 288.8Q304.7 288.8 307.1 292.9Q308.7 292.3 309.7 292.3Q315.3 292.3 315.3 300.7Q315.3 304.3 313.9 309.1Q312.5 313.9 309.1 321.1Q314.1 325.6 318.8 325.6Q322.6 325.6 326 323.8Q329.4 321.9 333.6 316.3Q334 315.9 334.8 315.9Q335.4 315.9 335.4 317.1Q335.4 318.3 334.4 319.7Q331.8 323.1 327.9 325.7Q324 328.4 318.2 328.4Q312.5 328.4 307.9 324.4Q300.3 341 290.1 341ZM306.7 318.5Q308.3 314.9 309.1 311.1Q309.9 307.3 309.9 302.9Q309.9 296.1 305.9 296.1Q302.1 296.1 302.1 303.5Q302.1 306.7 303.6 311.3Q305.1 315.9 306.7 318.5ZM293.7 335.4Q296.5 335.4 300.7 330Q302.5 327.8 303.7 325.5Q304.9 323.3 305.3 322.5Q302.3 319.1 300.1 315.3Q297.9 311.5 297.5 307.5Q295.1 309.5 292.5 317.9Q289.9 326.2 289.9 330Q289.9 335.4 293.7 335.4ZM374.1 338.2Q368.5 338.2 366.3 334Q364.1 329.8 364.1 322.1Q364.1 321.1 364.1 320Q364.1 318.9 364.3 317.9Q361.3 323.7 354.5 329.2Q347.2 335.8 341.6 335.8Q338 335.8 335.2 331.6Q333 327.6 333 323.7Q333 316.9 336.4 308.3Q340 297.5 345.6 297.5Q347.6 297.5 347.8 300.1Q340 313.5 340 321.5Q340 329.2 344.8 329.2Q354.9 329.2 366.9 307.3Q367.3 306.1 368.2 304.4Q369.1 302.7 370.3 300.7Q370.9 298.9 375.7 298.9Q377.3 298.9 377.3 300.1L375.1 306.3Q373.5 310.7 372.9 314.7Q372.3 318.7 372.3 322.1Q372.3 333 377.5 333Q381.5 333 387.3 328Q393.2 323.1 398.2 316.3Q398.8 315.7 399.2 315.7Q400 315.7 400 317.1Q400 318.5 399 319.7Q391 330.2 384.9 334.2Q378.9 338.2 374.1 338.2Z" fill="currentColor" mask="url(#bm-brush)"/>
+  <circle class="nib" r="4.6" opacity="0" fill="currentColor">
+    <animateMotion dur="1.9s" begin="0s" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines="0.45 0.05 0.35 1"><mpath href="#bm-pen" xlink:href="#bm-pen"/></animateMotion>
+    <animate attributeName="opacity" dur="1.9s" begin="0s" values="0;1;1;0" keyTimes="0;.04;.94;1"/>
+  </circle>
+</svg>
+</a>
+      <div class="brand-text">
+        <a href="/" class="brand-title">集合</a>
+        
+          <span class="brand-subtitle">万物终归一站</span>
+        
+      </div>
+    </div>
+    <nav class="header-nav">
+      
+        <a href="/" class="nav-link">Home</a>
+      
+        <a href="/archives" class="nav-link">Archives</a>
+      
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="toggle-light">Light</span>
+        <span class="toggle-dark">Dark</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+    <main class="main-content">
+      
+
+<article class="article-page" itemscope itemprop="blogPost">
+  <div class="article-content-split">
+    <div class="article-column">
+      <!-- Hero Section -->
+      <section class="article-hero">
+        <div class="hero-top-row">
+          
+            <span class="chip chip-accent">学习呦</span>
+          
+          <div class="hero-meta">
+            <span class="meta-date">14 10月 2025</span>
+            <span class="read-time-pill">1 min read</span>
+
+          </div>
+        </div>
+        <h1 class="article-title">Go+run+++Go+build</h1>
+        
+      </section>
+
+      <!-- Author Card -->
+      <div class="author-card card">
+        <span class="card-label">Written by</span>
+        <span class="author-name">米豆</span>
+      </div>
+
+      <!-- Article Body -->
+      <div class="article-entry" itemprop="articleBody">
+        <h1 id="Go-run-Go-build"><a href="#Go-run-Go-build" class="headerlink" title="Go run &#x2F; Go build"></a>Go run &#x2F; Go build</h1><h3 id="Go-run："><a href="#Go-run：" class="headerlink" title="Go run："></a>Go run：</h3><p>这是一个Go命令的提供的工具链，包括打包，编译，运行这些步骤</p>
+<figure class="highlight plaintext"><figcaption><span>Text</span></figcaption><table><tr><td class="code"><pre><span class="line">go run main.go</span><br></pre></td></tr></table></figure>
+
+<p>如果是在一个包下直接运行上面的命令，只会对你指定的文件进行打包、编译、运行的操作比如，<code>main.go</code>中有使用在main package中的其他.go文件中的方法，运行上面的命令就会提示无法找到某某某函数，所以需要工具链打包整个包，编译整个包才行</p>
+<figure class="highlight plaintext"><figcaption><span>Text</span></figcaption><table><tr><td class="code"><pre><span class="line">go run .</span><br></pre></td></tr></table></figure>
+
+<h3 id="Go-build："><a href="#Go-build：" class="headerlink" title="Go build："></a>Go build：</h3><figure class="highlight plaintext"><figcaption><span>Text</span></figcaption><table><tr><td class="code"><pre><span class="line">go build .go build xxx.go</span><br></pre></td></tr></table></figure>
+
+<p>上面的命令会将指定的go文件或者整个包打包成一个可以在当前操作系统下执行的文件，Linux为一个脚本，Windows下为exe</p>
+
+      </div>
+
+      <!-- Article Footer -->
+      <footer class="article-footer">
+        <div class="footer-tags">
+          
+            <div class="tag-list">
+              <span class="tag-label">Topics</span>
+              
+                <a href="/tags/Go/" class="chip chip-topic">Go</a>
+              
+            </div>
+          
+        </div>
+
+        <!-- Next Article -->
+        
+        <div class="next-article card">
+          <span class="card-eyebrow">Next up</span>
+          <h3 class="next-title"><a href="/passages/midou-notes/Go/Go%E5%AF%B9json%E3%80%81xml%E3%80%81yaml%E7%AD%89%E6%A0%87%E5%87%86%E6%A0%BC%E5%BC%8F%E7%BC%96%E7%A0%81%E7%9A%84%E6%94%AF%E6%8C%81/">Go对json、xml、yaml等标准格式编码的支持</a></h3>
+          <a href="/passages/midou-notes/Go/Go%E5%AF%B9json%E3%80%81xml%E3%80%81yaml%E7%AD%89%E6%A0%87%E5%87%86%E6%A0%BC%E5%BC%8F%E7%BC%96%E7%A0%81%E7%9A%84%E6%94%AF%E6%8C%81/" class="btn btn-primary">Read next</a>
+        </div>
+        
+      </footer>
+    </div>
+
+    <!-- Support Rail -->
+    <aside class="support-rail">
+      
+
+      <div class="sidebar-author-card card">
+        <span class="card-label">Author</span>
+        <span class="author-name">米豆</span>
+        
+          <p class="author-bio">万物终归一站</p>
+        
+      </div>
+
+      <div class="reading-stats-card card">
+        <span class="card-label">Reading path</span>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-label">Published</span>
+            <span class="stat-value">14 10月 2025</span>
+          </div>
+          
+          <div class="stat-item">
+            <span class="stat-label">Topics</span>
+            <div class="stat-tags">
+              
+                <a href="/tags/Go/" class="chip chip-topic">Go</a>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </aside>
+  </div>
+</article>
+
+<div class="back-to-top" id="back-to-top">
+  <svg class="progress-ring" viewBox="0 0 44 44">
+    <circle class="progress-ring-bg" cx="22" cy="22" r="20" fill="none" stroke-width="2"/>
+    <circle class="progress-ring-fill" cx="22" cy="22" r="20" fill="none" stroke-width="2" stroke-dasharray="125.6" stroke-dashoffset="125.6"/>
+  </svg>
+  <span class="back-to-top-icon">&uarr;</span>
+</div>
+
+
+    </main>
+    <footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-note">集合 &nbsp;/&nbsp; 2026 &nbsp;/&nbsp; 米豆的个人博客，分享前端开发、Linux、计算机网络与 AI 学习笔记，记录技术实践和生活感想。</p>
+  </div>
+</footer>
+
+  </div>
+  <script>
+(function() {
+  // Dark mode toggle
+  var toggle = document.getElementById('theme-toggle');
+  var html = document.documentElement;
+
+  function getTheme() {
+    var stored = localStorage.getItem('theme');
+    if (stored) return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function setTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }
+
+  setTheme(getTheme());
+
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      var current = html.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  // Back to top with scroll progress
+  var btn = document.getElementById('back-to-top');
+  if (btn) {
+    var fill = btn.querySelector('.progress-ring-fill');
+    var circumference = 2 * Math.PI * 20; // r=20
+
+    window.addEventListener('scroll', function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var progress = docHeight > 0 ? scrollTop / docHeight : 0;
+
+      // Update progress ring
+      fill.style.strokeDashoffset = circumference * (1 - progress);
+
+      // Show/hide button
+      if (scrollTop > 300) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    });
+
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+})();
+</script>
+
+
+  
+<link rel="stylesheet" href="/css/glightbox.min.css">
+
+  
+<script src="/js/glightbox.min.js"></script>
+
+  
+  <script>
+    const glightBox = new GLightbox({"touchNavigation":true,"loop":false,"zoomable":true,"draggable":true,"openEffect":"zoom","closeEffect":"zoom","slideEffect":"slide"})
+  </script>
+
+
+
+</body>
+</html>

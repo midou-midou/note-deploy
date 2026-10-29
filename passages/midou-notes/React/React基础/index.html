@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+
+<title>React基础 | 集合</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="canonical" href="http://mimonarchrd.gitee.io/passages/midou-notes/React/React%E5%9F%BA%E7%A1%80/">
+
+<meta name="description" content="React基础基础JSX 语法const element &#x3D; &lt;h1&gt;Hello, &#123;name&#125;&lt;&#x2F;h1&gt; JavaScript和UI代码的结合 用{}包裹表达式（js表达式，变量） const element &#x3D; &lt;img className&#x3D;&#123;imgCla">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React基础">
+<meta property="og:url" content="http://mimonarchrd.gitee.io/passages/midou-notes/React/React%E5%9F%BA%E7%A1%80/">
+<meta property="og:site_name" content="集合">
+<meta property="og:description" content="React基础基础JSX 语法const element &#x3D; &lt;h1&gt;Hello, &#123;name&#125;&lt;&#x2F;h1&gt; JavaScript和UI代码的结合 用{}包裹表达式（js表达式，变量） const element &#x3D; &lt;img className&#x3D;&#123;imgCla">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://mimonarchrd.gitee.io/image/midou-notes/React/React%E5%9F%BA%E7%A1%80/1648260914571-62e0ab6e-8899-437b-8984-0421b57ea84d.png">
+<meta property="og:image" content="http://mimonarchrd.gitee.io/image/midou-notes/React/React%E5%9F%BA%E7%A1%80/1648260914566-29493971-1264-4585-8b29-a8892b6fea6e.png">
+<meta property="og:image" content="http://mimonarchrd.gitee.io/image/midou-notes/React/React%E5%9F%BA%E7%A1%80/1648260914567-71926746-14eb-4a2b-abab-b9be2e79546d.png">
+<meta property="article:published_time" content="2025-10-14T13:01:35.000Z">
+<meta property="article:modified_time" content="2026-10-28T14:52:41.864Z">
+<meta property="article:author" content="米豆">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://mimonarchrd.gitee.io/image/midou-notes/React/React%E5%9F%BA%E7%A1%80/1648260914571-62e0ab6e-8899-437b-8984-0421b57ea84d.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"React基础","description":"React基础基础JSX 语法const element = &lt;h1&gt;Hello, &#123;name&#125;&lt;/h1&gt; JavaScript和UI代码的结合 用{}包裹表达式（js表达式，变量） const element = &lt;img className=&#123;imgCla","url":"http://mimonarchrd.gitee.io/passages/midou-notes/React/React%E5%9F%BA%E7%A1%80/","inLanguage":"zh-CN","author":{"@type":"Person","name":"米豆"},"isPartOf":{"@type":"WebSite","name":"集合","url":"http://mimonarchrd.gitee.io"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://mimonarchrd.gitee.io/passages/midou-notes/React/React%E5%9F%BA%E7%A1%80/"},"datePublished":"2025-10-14T13:01:35.000Z","dateModified":"2026-10-28T14:52:41.864Z"}</script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body>
+  <div class="page-wrapper">
+    <header class="site-header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <a href="/" class="brand-mark" aria-label="集合">
+<svg class="brand-logo" viewBox="51.5 213.5 363 143" fill="none" aria-hidden="true" focusable="false" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <mask id="bm-brush" maskUnits="userSpaceOnUse" x="51.5" y="213.5" width="363" height="143">
+      <rect x="51.5" y="213.5" width="363" height="143" fill="#000"/>
+      <path id="bm-pen" class="brush" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0" d="M78.00 292.00 C78.00 292.01 74.88 301.84 73.40 306.60 C71.99 311.13 70.14 316.23 69.30 319.90 C68.72 322.43 67.68 326.05 68.30 326.40 C68.84 326.70 70.71 324.56 72.10 323.20 C74.10 321.24 76.48 317.73 78.90 315.50 C81.17 313.41 83.68 310.93 86.10 310.10 C88.06 309.43 90.32 309.25 92.00 310 C93.79 310.80 94.99 313.38 96.40 315.10 C97.79 316.78 98.75 319.51 100.40 320.20 C101.88 320.82 103.89 320.33 105.60 319.60 C107.74 318.69 109.70 315.57 111.90 314.40 C113.82 313.37 116.08 312.13 117.90 312.60 C119.92 313.12 121.59 315.94 123.30 318.10 C125.29 320.62 126.69 324.52 128.90 327.00 C130.94 329.29 133.28 331.82 135.90 332.60 C138.46 333.36 141.67 332.78 144.40 331.80 C147.43 330.71 150.40 328.08 153.10 325.90 C155.76 323.74 158.16 320.41 160.50 318.80 C162.20 317.63 164.11 316.06 165.40 316.50 C166.82 316.98 167.39 320.15 168.40 322.30 C169.62 324.89 170.19 328.82 172.10 331.00 C173.88 333.03 176.48 334.77 179.20 335.20 C182.36 335.71 186.45 334.21 190.10 332.80 C194.25 331.19 198.54 328.34 202.60 325.60 C206.85 322.74 210.88 319.06 215.00 315.90 C219.04 312.80 223.10 309.51 227.10 306.80 C230.79 304.30 234.61 302.34 238.10 300.10 C241.36 298.01 244.64 296.51 247.40 293.80 C250.45 290.81 252.89 286.88 255.30 282.60 C258.14 277.56 260.49 271.08 262.90 265.20 C265.33 259.28 267.80 251.92 269.80 247.20 C271.13 244.07 273.03 239.38 273.40 239.50 C273.79 239.62 272.64 245.09 271.80 248.90 C270.46 254.96 267.55 264.08 265.40 272.20 C263.06 281.05 260.18 291.17 258.30 300 C256.61 307.91 254.75 316.21 254.40 322.70 C254.14 327.53 253.70 332.62 255.20 335.40 C256.24 337.33 258.19 338.67 260.10 339.10 C262.20 339.57 265.03 338.52 267.40 337.60 C269.97 336.60 272.63 334.97 274.90 333.10 C277.25 331.16 279.43 328.69 281.20 326.10 C283.00 323.47 284.53 320.36 285.60 317.40 C286.62 314.59 287.72 311.46 287.60 308.80 C287.49 306.44 286.87 303.85 285.40 302.20 C283.82 300.43 280.61 299.03 278.10 298.80 C275.61 298.57 271.70 299.14 270.40 300.80 C269.09 302.47 269.27 306.40 270.30 308.80 C271.50 311.59 275.34 315.35 278.20 316.10 C280.70 316.75 284.04 315.79 286.20 314.20 C288.65 312.40 289.69 307.98 291.60 305.10 C293.43 302.33 295.07 298.77 297.40 297.20 C299.36 295.88 302.14 295.01 304.10 295.50 C306.04 295.99 307.98 298.09 309.10 300.10 C310.39 302.41 310.80 305.85 310.80 308.90 C310.80 312.20 309.98 315.98 308.80 319.20 C307.63 322.38 305.75 325.72 303.80 328.10 C302.14 330.12 299.75 332.21 298.20 332.90 C297.33 333.29 295.97 333.39 295.90 333.20 C295.81 332.95 297.98 331.60 299.40 330.90 C301.31 329.96 304.04 329.08 306.50 328.40 C309.06 327.70 311.85 327.46 314.50 326.80 C317.18 326.13 319.97 325.69 322.50 324.40 C325.23 323.01 327.85 320.66 330.20 318.50 C332.51 316.38 334.53 313.00 336.50 311.60 C337.79 310.68 339.40 309.56 340.20 310 C341.18 310.54 340.97 313.78 341.20 316.00 C341.48 318.71 341.09 322.35 341.60 325.10 C342.05 327.48 342.42 330.52 343.80 331.60 C344.97 332.51 347.05 332.54 348.70 332.00 C350.91 331.28 353.23 328.40 355.40 326.20 C357.81 323.76 360.05 320.04 362.40 317.90 C364.26 316.20 366.45 313.76 368.00 314.00 C369.43 314.23 370.54 316.70 371.50 318.60 C372.74 321.05 372.95 325.12 374.20 327.80 C375.30 330.16 376.50 333.07 378.30 334.00 C379.89 334.82 382.23 334.46 384.10 333.80 C386.28 333.03 388.51 330.67 390.40 329.10 C392.07 327.71 394.01 325.18 394.90 324.90 C395.20 324.80 395.52 324.85 395.60 325.00 C395.74 325.29 394.33 327.05 394.40 327.10 C394.46 327.15 395.16 326.34 395.70 325.70 C396.74 324.46 399.99 320.01 400 320" stroke="#fff" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect class="settle" x="51.5" y="213.5" width="363" height="143" fill="#fff"/>
+    </mask>
+  </defs>
+  <path class="ink" d="M96.9 340.4Q95.1 340.4 94.1 337.4V333.6Q94.1 308.9 87.7 308.9Q83.5 308.9 75 322.5Q72.6 326 70.3 329.6Q68 333.2 65.8 336.8Q64.6 337.2 64 337.2Q62 337.2 62 334.2V333.6L64.4 325.6Q68.6 313.1 70.6 305.6Q72.6 298.1 72.6 295.7Q72.6 294.9 72.4 294.7Q76.4 291.1 79.9 291.1Q81.7 291.1 81.3 292.1L77.8 312.3Q79.7 309.5 85.9 305.3Q89.1 303.1 91.4 302.1Q93.7 301.1 95.1 301.1Q101.3 301.1 102.1 326Q104.3 322.1 108 316.1Q111.7 310.1 116.6 302.3Q119.4 298.5 122.6 298.5Q125.6 298.5 126.2 302.3Q126.8 310.1 127.4 316.8Q128 323.5 130 327.4Q132 331.4 136.8 331.6Q142.8 331.6 148.6 327.1Q154.5 322.7 159.3 316.3Q160.3 314.7 161.3 314.7Q161.9 314.7 161.9 316.3Q161.9 316.7 161.1 318Q160.3 319.3 159.9 319.7Q156.5 324.6 152 329.3Q147.5 334 142.6 336.9Q137.6 339.8 132.6 339.8Q125.2 339.8 121.8 331.8Q118.4 323.9 117.6 309.3Q113.4 313.1 108.7 322.9Q105.7 328.4 103.7 332.1Q101.7 335.8 100.7 337.4Q98.7 340.4 96.9 340.4ZM177.5 276.8Q175.1 276.8 173.1 274.6Q171.1 272.4 171.1 270Q171.1 264.4 177.3 264.4Q183.2 264.4 183.2 270.2Q183.2 276.8 177.5 276.8ZM174.9 339Q168.1 339 163.6 334.3Q159.1 329.6 159.1 320.7Q159.1 309.7 165.1 298.3Q167.3 294.1 172.7 294.1Q175.9 294.1 175.9 296.1Q175.9 296.7 175.3 297.9Q168.3 311.3 168.3 320.9Q168.3 327.8 170.8 331Q173.3 334.2 177.7 334.2Q184.6 334.2 191.6 328.9Q198.6 323.7 205.2 316.1Q205.8 315.1 207 315.1Q207.8 315.1 207.8 315.9Q207.8 316.5 207.1 317.6Q206.4 318.7 205.8 319.7Q203.2 323.1 199.6 326.6Q196 330.2 191.2 333.4Q187.4 336 183.1 337.5Q178.9 339 174.9 339ZM209.6 338.4Q200.8 338.4 200.8 328.6Q200.8 316.9 216.9 304.3Q231.9 292.5 244.7 292.5Q245.3 292.5 246.2 292.7Q247.1 292.9 247.7 292.9Q248 292.9 249.8 287.6L265.8 242.9Q267.2 239.1 269.2 233.7Q271.2 228.3 274.2 221.4Q276 218 276.8 218Q281.4 218 281.4 222Q281.4 224.7 279.7 230.7Q278 236.7 274.4 245.7L264.8 269.8Q261.4 278.6 258.9 286.5Q256.4 294.3 254.6 301.1Q252.6 308.3 252.6 318.5Q252.6 334.4 260.2 334.4Q264.8 334.4 270.7 330.6Q276.6 326.8 284.7 316.3Q285.1 315.9 286 314.9Q286.9 313.9 287.1 313.9Q287.7 313.9 287.7 314.7Q287.7 315.9 287.1 317.2Q286.5 318.5 285.5 319.7Q278.2 330 271.2 334.1Q264.2 338.2 258 338.2Q243.9 338.2 243.5 310.9Q242.1 314.1 238.2 318.2Q234.3 322.3 228.3 327.4Q215.5 338.4 209.6 338.4ZM214.5 331.4Q220.3 331.4 229.1 322.7Q232.5 319.3 235.2 316Q237.9 312.7 240.5 309.1Q242.5 305.7 244.1 302.6Q245.7 299.5 246.7 296.5Q245.9 296.3 244.9 296.2Q243.9 296.1 242.5 296.1Q224.3 296.1 213.2 316.3Q209.8 321.9 209.8 326.4Q209.8 331.4 214.5 331.4ZM290.1 341Q282.7 341 282.7 330.2Q282.7 327.4 283.3 324.1Q283.9 320.7 284.9 316.9Q286.9 309.9 290.9 301.1Q296.9 288.8 300.9 288.8Q304.7 288.8 307.1 292.9Q308.7 292.3 309.7 292.3Q315.3 292.3 315.3 300.7Q315.3 304.3 313.9 309.1Q312.5 313.9 309.1 321.1Q314.1 325.6 318.8 325.6Q322.6 325.6 326 323.8Q329.4 321.9 333.6 316.3Q334 315.9 334.8 315.9Q335.4 315.9 335.4 317.1Q335.4 318.3 334.4 319.7Q331.8 323.1 327.9 325.7Q324 328.4 318.2 328.4Q312.5 328.4 307.9 324.4Q300.3 341 290.1 341ZM306.7 318.5Q308.3 314.9 309.1 311.1Q309.9 307.3 309.9 302.9Q309.9 296.1 305.9 296.1Q302.1 296.1 302.1 303.5Q302.1 306.7 303.6 311.3Q305.1 315.9 306.7 318.5ZM293.7 335.4Q296.5 335.4 300.7 330Q302.5 327.8 303.7 325.5Q304.9 323.3 305.3 322.5Q302.3 319.1 300.1 315.3Q297.9 311.5 297.5 307.5Q295.1 309.5 292.5 317.9Q289.9 326.2 289.9 330Q289.9 335.4 293.7 335.4ZM374.1 338.2Q368.5 338.2 366.3 334Q364.1 329.8 364.1 322.1Q364.1 321.1 364.1 320Q364.1 318.9 364.3 317.9Q361.3 323.7 354.5 329.2Q347.2 335.8 341.6 335.8Q338 335.8 335.2 331.6Q333 327.6 333 323.7Q333 316.9 336.4 308.3Q340 297.5 345.6 297.5Q347.6 297.5 347.8 300.1Q340 313.5 340 321.5Q340 329.2 344.8 329.2Q354.9 329.2 366.9 307.3Q367.3 306.1 368.2 304.4Q369.1 302.7 370.3 300.7Q370.9 298.9 375.7 298.9Q377.3 298.9 377.3 300.1L375.1 306.3Q373.5 310.7 372.9 314.7Q372.3 318.7 372.3 322.1Q372.3 333 377.5 333Q381.5 333 387.3 328Q393.2 323.1 398.2 316.3Q398.8 315.7 399.2 315.7Q400 315.7 400 317.1Q400 318.5 399 319.7Q391 330.2 384.9 334.2Q378.9 338.2 374.1 338.2Z" fill="currentColor" mask="url(#bm-brush)"/>
+  <circle class="nib" r="4.6" opacity="0" fill="currentColor">
+    <animateMotion dur="1.9s" begin="0s" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines="0.45 0.05 0.35 1"><mpath href="#bm-pen" xlink:href="#bm-pen"/></animateMotion>
+    <animate attributeName="opacity" dur="1.9s" begin="0s" values="0;1;1;0" keyTimes="0;.04;.94;1"/>
+  </circle>
+</svg>
+</a>
+      <div class="brand-text">
+        <a href="/" class="brand-title">集合</a>
+        
+          <span class="brand-subtitle">万物终归一站</span>
+        
+      </div>
+    </div>
+    <nav class="header-nav">
+      
+        <a href="/" class="nav-link">Home</a>
+      
+        <a href="/archives" class="nav-link">Archives</a>
+      
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="toggle-light">Light</span>
+        <span class="toggle-dark">Dark</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+    <main class="main-content">
+      
+
+<article class="article-page" itemscope itemprop="blogPost">
+  <div class="article-content-split">
+    <div class="article-column">
+      <!-- Hero Section -->
+      <section class="article-hero">
+        <div class="hero-top-row">
+          
+            <span class="chip chip-accent">学习呦</span>
+          
+          <div class="hero-meta">
+            <span class="meta-date">14 10月 2025</span>
+            <span class="read-time-pill">21 min read</span>
+
+          </div>
+        </div>
+        <h1 class="article-title">React基础</h1>
+        
+      </section>
+
+      <!-- Author Card -->
+      <div class="author-card card">
+        <span class="card-label">Written by</span>
+        <span class="author-name">米豆</span>
+      </div>
+
+      <!-- Article Body -->
+      <div class="article-entry" itemprop="articleBody">
+        <h1 id="React基础"><a href="#React基础" class="headerlink" title="React基础"></a>React基础</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="JSX-语法"><a href="#JSX-语法" class="headerlink" title="JSX 语法"></a>JSX 语法</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>JavaScript和UI代码的结合 用<code>{}</code>包裹表达式（js表达式，变量）</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">className</span>=<span class="string">&#123;imgClass&#125;</span> <span class="attr">src</span>=<span class="string">&#123;user.avatarUrl&#125;</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>class属性写为className</p>
+</li>
+<li><p>属性用小驼峰语法</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(element,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>一个可运行的React Hello World例子 在React中，碰到<code>标签</code>会以html解析，碰到<code>{}</code>会以JavaScript解析<br>渲染一个React组件使用 <code>ReactDOM.render(element, container[, callback])</code></p>
+<h4 id="createElement方法"><a href="#createElement方法" class="headerlink" title="createElement方法"></a>createElement方法</h4><p>JSX 会转换为 <code>React.createElement</code>方法调用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函数签名</span></span><br><span class="line"><span class="keyword">const</span> element = <span class="title function_">createElement</span>(type, props, ...children)</span><br></pre></td></tr></table></figure>
+<p>会创建一个 react 元素，类似 vue 的 <code>h</code>函数创建 vue 中的 VNode</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用 createElement 函数</span></span><br><span class="line"><span class="keyword">import</span> &#123; createElement &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Greeting</span>(<span class="params">&#123; name &#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">createElement</span>(</span><br><span class="line">    <span class="string">&#x27;h1&#x27;</span>,</span><br><span class="line">    &#123; <span class="attr">className</span>: <span class="string">&#x27;greeting&#x27;</span> &#125;,</span><br><span class="line">    <span class="string">&#x27;你好&#x27;</span>,</span><br><span class="line">    <span class="title function_">createElement</span>(<span class="string">&#x27;i&#x27;</span>, <span class="literal">null</span>, name),</span><br><span class="line">    <span class="string">&#x27;。欢迎！&#x27;</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接使用 JSX</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Greeting</span>(<span class="params">&#123; name &#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">className</span>=<span class="string">&quot;greeting&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      你好<span class="tag">&lt;<span class="name">i</span>&gt;</span>&#123;name&#125;<span class="tag">&lt;/<span class="name">i</span>&gt;</span>，欢迎！</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><ol>
+<li>类式组件</li>
+<li>函数式组件</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">MyComponent</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>我是用函数定义的组件(适用于【简单组件】的定义)<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> defualt <span class="keyword">class</span> <span class="title class_">MyComponent</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>我是用类定义的组件(适用于【复杂组件】的定义)<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>插入组件使用import，使用组件用 开头大写 的标签，组件可嵌套</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Hello</span> <span class="keyword">from</span> <span class="string">&#x27;./components/Hello&#x27;</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">MyComponent</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Hello</span> /&gt;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>渲染组件，ReactDOM的使用</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(</span><br><span class="line">  <span class="title class_">MyComponent</span>,</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="组件上的props和state"><a href="#组件上的props和state" class="headerlink" title="组件上的props和state"></a>组件上的props和state</h3><p>组件接收的入参为props，组件自身的状态为state</p>
+<h4 id="props"><a href="#props" class="headerlink" title="props"></a>props</h4><p>组件身上的标签属性（也就是这个组件接收的参数）都会存放到组件的props属性上</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Welcome</span>(<span class="params">props</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>传值</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> el = <span class="language-xml"><span class="tag">&lt;<span class="name">Welcome</span> <span class="attr">name</span>=<span class="string">&quot;嘉然&quot;</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>传入值的类型检查，PropTypes的使用</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Welcome</span>.<span class="property">propTypes</span> = &#123;</span><br><span class="line">  <span class="attr">name</span>:<span class="title class_">PropTypes</span>.<span class="property">string</span>.<span class="property">isRequired</span>, <span class="comment">//限制name必传，且为字符串</span></span><br><span class="line">  <span class="attr">sex</span>:<span class="title class_">PropTypes</span>.<span class="property">string</span>,<span class="comment">//限制sex为字符串</span></span><br><span class="line">  <span class="attr">age</span>:<span class="title class_">PropTypes</span>.<span class="property">number</span>,<span class="comment">//限制age为数值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>默认值，defaultProps的使用</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Welcome</span>.<span class="property">defaultProps</span> = &#123;</span><br><span class="line">  <span class="attr">sex</span>: <span class="string">&quot;male&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">20</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>props不可修改</p>
+<h4 id="State"><a href="#State" class="headerlink" title="State"></a>State</h4><p>函数式组件需借助Hooks使用state，类式组件可以直接使用state。 state是一个对象的形式</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Weather</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span>&#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">props</span>)&#123;</span><br><span class="line">    <span class="variable language_">super</span>(props)</span><br><span class="line">    <span class="comment">//初始化状态</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">state</span> = &#123;<span class="attr">isHot</span>:<span class="literal">false</span>,<span class="attr">wind</span>:<span class="string">&#x27;微风&#x27;</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不可以直接修改state，使用setState()修改 <code>this.setState({isHot:!isHot})</code></p>
+<p>使用<code>setState(stateChange||updater, [callback])</code>需要注意：</p>
+<ul>
+<li><p>不要在一些生命周期函数中使用，会引起死循环</p>
+</li>
+<li><p>更新是异步的，如果要实现同步更新，setState要接收一个函数</p>
+</li>
+<li><p>callback会在组件状态和界面都更新后才会被调用</p>
+</li>
+<li><p>如果新状态不依赖于原状态 &#x3D;&#x3D;&gt; 使用对象方式</p>
+</li>
+<li><p>如果新状态依赖于原状态 &#x3D;&#x3D;&gt; 使用函数方式</p>
+</li>
+<li><p>如果需要在<code>setState()</code>执行后获取最新的状态数据, 要在第二个callback函数中读取</p>
+</li>
+</ul>
+<h4 id="useState"><a href="#useState" class="headerlink" title="useState"></a>useState</h4><p>[useState Hook](.&#x2F;Hooks.md###State Hooks)</p>
+<h3 id="四、事件处理"><a href="#四、事件处理" class="headerlink" title="四、事件处理"></a>四、事件处理</h3><ol>
+<li>事件处理回调</li>
+<li><code>Ref</code></li>
+</ol>
+<p>类式组件里，在回调函数中要注意this指向的问题</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Toggle</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>(props);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">state</span> = &#123;<span class="attr">isToggleOn</span>: <span class="literal">true</span>&#125;;</span><br><span class="line">    <span class="comment">// 为了在回调中使用 `this`，这个绑定是必不可少的</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">handleClick</span> = <span class="variable language_">this</span>.<span class="property">handleClick</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">handleClick</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setState</span>(<span class="function"><span class="params">state</span> =&gt;</span> (&#123;</span><br><span class="line">      <span class="attr">isToggleOn</span>: !state.<span class="property">isToggleOn</span></span><br><span class="line">    &#125;));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;this.state.isToggleOn ? &#x27;ON&#x27; : &#x27;OFF&#x27;&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的写法还有其他的形式，可以不用<code>bind</code>来绑定，bind涉及到作用域，参考javascript部分</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LoggingButton</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  handleClick = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;this is:&#x27;</span>, <span class="variable language_">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        Click me</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面到写法就是不需要使用bind绑定到写法</p>
+<p>函数式组件的事件绑定如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ActionLink</span>(<span class="params"></span>) &#123;</span><br><span class="line">  handleClick = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;The link was clicked.&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">onClick</span>=<span class="string">&#123;handleClick&#125;</span>&gt;</span>Click me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Ref</strong> 访问DOM的方法，即为一个DOM的引用 创建一个Ref</p>
+<ul>
+<li><p><code>React.createRef()</code>创建的是ref对象</p>
+</li>
+<li><p>回调形式的Ref</p>
+</li>
+<li><p>String类型的Ref（已经过时，不再使用）</p>
+</li>
+</ul>
+<p>从上到下依次是三种使用Ref的例子</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyComponent</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>(props);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">myRef</span> = <span class="title class_">React</span>.<span class="title function_">createRef</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ref</span>=<span class="string">&#123;this.myRef&#125;</span> /&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>当在html元素上使用ref，ref对象接收的是底层DOM元素，放到其current属性上</p>
+</li>
+<li><p>当ref用于class组件上时，ref对象接收的是这个组件的实例，放到其current属性上</p>
+</li>
+<li><p>函数没有实例，不能将其放到ref上</p>
+</li>
+</ol>
+<p>回调形式的ref</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CustomTextInput</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>(props);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">textInput</span> = <span class="literal">null</span>;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">setTextInputRef</span> = <span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">textInput</span> = element;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">focusTextInput</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 使用原生 DOM API 使 text 输入框获得焦点</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">textInput</span>) <span class="variable language_">this</span>.<span class="property">textInput</span>.<span class="title function_">focus</span>();</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">componentDidMount</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 组件挂载后，让文本框自动获得焦点</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">focusTextInput</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 使用 `ref` 的回调函数将 text 输入框 DOM 节点的引用存储到 React</span></span><br><span class="line">    <span class="comment">// 实例上（比如 this.textInput）</span></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">input</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">type</span>=<span class="string">&quot;text&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">ref</span>=<span class="string">&#123;this.setTextInputRef&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">input</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">type</span>=<span class="string">&quot;button&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">value</span>=<span class="string">&quot;Focus the text input&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">onClick</span>=<span class="string">&#123;this.focusTextInput&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>在组件挂载的时候，会执行ref的回调函数</p>
+</li>
+<li><p>在组件卸载的时候，也会调用ref的回调函数</p>
+</li>
+</ol>
+<h3 id="五、虚拟DOM、真实DOM"><a href="#五、虚拟DOM、真实DOM" class="headerlink" title="五、虚拟DOM、真实DOM"></a>五、虚拟DOM、真实DOM</h3><h4 id="虚拟DOM（文档称为-React-元素）"><a href="#虚拟DOM（文档称为-React-元素）" class="headerlink" title="虚拟DOM（文档称为 React 元素）"></a>虚拟DOM（文档称为 React 元素）</h4><p>开销极小的普通对象</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Velement</span> = <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Hello, world<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者使用 React.createElement()</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="真实DOM"><a href="#真实DOM" class="headerlink" title="真实DOM"></a>真实DOM</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Relement</span> = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;root&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="两者关系"><a href="#两者关系" class="headerlink" title="两者关系"></a>两者关系</h4><ul>
+<li><p>调用<code>ReactDOM.render</code>将虚拟DOM渲染成真实DOM，组件state改变时，React会创建新VDOM并生成RDOM</p>
+</li>
+<li><p>虚拟DOM没有真实DOM过多的属性</p>
+</li>
+</ul>
+<h4 id="Diff算法"><a href="#Diff算法" class="headerlink" title="Diff算法"></a>Diff算法</h4><p>[对象差异比对调和（Reconciliation）算法](.&#x2F;React Fiber.md) </p>
+<ul>
+<li>虚拟DOM的比对</li>
+<li>三种比对策略</li>
+</ul>
+<p>Tree Diff：DOM树的同层比对，跨层时，直接创建新节点及节点下的树 Element Diff：节点在同一层级，会使用 删除、插入、移动 来更新插入</p>
+<p><a class="glightbox" href="/image/midou-notes/React/React%E5%9F%BA%E7%A1%80/1648260914571-62e0ab6e-8899-437b-8984-0421b57ea84d.png"><img src="/image/midou-notes/React/React%E5%9F%BA%E7%A1%80/1648260914571-62e0ab6e-8899-437b-8984-0421b57ea84d.png" alt="https:&#x2F;&#x2F;static.xuyanshe.club&#x2F;img&#x2F;1648260914571-62e0ab6e-8899-437b-8984-0421b57ea84d.png"></a></p>
+<p>Component Diff：</p>
+<ul>
+<li><p>不同类型组件：使用Tree Diff</p>
+</li>
+<li><p>同类型组件，比对 属性 - 子节点 子节点如根节点比对形式 属性 - 子节点 比对。碰到不同类型节点便使用Tree Diff规则。也可以使用 生命周期函数<code>shouldComponentUpdate()</code>来手动控制组件更新不同类型组件</p>
+</li>
+</ul>
+<p>不同类型组件</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Counter</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Counter</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>同类型组件</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;before&quot;</span> <span class="attr">title</span>=<span class="string">&quot;stuff&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;after&quot;</span> <span class="attr">title</span>=<span class="string">&quot;stuff&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>节点在同一层级，会使用 <strong>删除、插入、移动</strong> 来更新 插入</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>first<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>first<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>second<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>每个节点带有key，避免 一些破坏渲染顺序的操作引发的性能问题</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>first<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  &#123;/* React不会做移动操作更新ul下面的两个li，而是直接删除原来ul的li，生成新的两个li */&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>second<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>first<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>根据key判断原节点是否在原VDOM中存在</p>
+<h4 id="为什么需要虚拟DOM"><a href="#为什么需要虚拟DOM" class="headerlink" title="为什么需要虚拟DOM"></a>为什么需要虚拟DOM</h4><ul>
+<li>相较于 DOM 的体积优势和速度优势</li>
+<li>多平台的渲染抽象能力</li>
+</ul>
+<h5 id="多平台渲染抽象能力"><a href="#多平台渲染抽象能力" class="headerlink" title="多平台渲染抽象能力"></a>多平台渲染抽象能力</h5><p>UI &#x3D; f（state）这个公式进一步进行拆分可以拆分成两步：</p>
+<ul>
+<li>根据自变量的变化计算出 UI</li>
+<li>根据 UI 变化执行具体的宿主环境的 API</li>
+</ul>
+<p>虚拟 DOM 只是多真实 UI 的一个描述，回头根据不同的宿主环境，可以执行不同的渲染代码：</p>
+<ul>
+<li>浏览器、Node.js 宿主环境使用 ReactDOM 包</li>
+<li>Native 宿主环境使用 ReactNative 包</li>
+<li>Canvas、SVG 或者 VML（IE8）宿主环境使用 ReactArt 包</li>
+<li>ReactTest 包用于渲染出 JS 对象，可以很方便地测试“不隶属于任何宿主环境的通用功能”</li>
+</ul>
+<h3 id="七、生命周期函数"><a href="#七、生命周期函数" class="headerlink" title="七、生命周期函数"></a>七、生命周期函数</h3><p>生命周期钩子，特定时刻执行</p>
+<ul>
+<li>React16.4 旧生命周期</li>
+</ul>
+<p><a class="glightbox" href="/image/midou-notes/React/React%E5%9F%BA%E7%A1%80/1648260914566-29493971-1264-4585-8b29-a8892b6fea6e.png"><img src="/image/midou-notes/React/React%E5%9F%BA%E7%A1%80/1648260914566-29493971-1264-4585-8b29-a8892b6fea6e.png" alt="https:&#x2F;&#x2F;static.xuyanshe.club&#x2F;img&#x2F;1648260914566-29493971-1264-4585-8b29-a8892b6fea6e.png"></a></p>
+<p>初始化阶段: 由ReactDOM.render()触发—初次渲染</p>
+<ol>
+<li><p><code>constructor()</code></p>
+</li>
+<li><p><code>componentWillMount()</code></p>
+</li>
+<li><p><code>render()</code></p>
+</li>
+<li><p><code>componentDidMount()</code></p>
+</li>
+</ol>
+<p>更新阶段: 由组件内部this.setSate()或父组件render触发</p>
+<ol>
+<li><p><code>shouldComponentUpdate()</code></p>
+</li>
+<li><p><code>componentWillUpdate()</code></p>
+</li>
+<li><p><code>render()</code></p>
+</li>
+<li><p><code>componentDidUpdate()</code></p>
+</li>
+</ol>
+<p>卸载组件: 由ReactDOM.unmountComponentAtNode()触发 <code>componentWillUnmount()</code></p>
+<ul>
+<li>新生命周期</li>
+</ul>
+<p><a class="glightbox" href="/image/midou-notes/React/React%E5%9F%BA%E7%A1%80/1648260914567-71926746-14eb-4a2b-abab-b9be2e79546d.png"><img src="/image/midou-notes/React/React%E5%9F%BA%E7%A1%80/1648260914567-71926746-14eb-4a2b-abab-b9be2e79546d.png" alt="https:&#x2F;&#x2F;static.xuyanshe.club&#x2F;img&#x2F;1648260914567-71926746-14eb-4a2b-abab-b9be2e79546d.png"></a></p>
+<p>image.png</p>
+<ol>
+<li><p>初始化阶段: 由ReactDOM.render()触发—初次渲染</p>
+<ol start="2">
+<li><p><code>constructor()</code></p>
+</li>
+<li><p><code>getDerivedStateFromProps()</code></p>
+</li>
+<li><p><code>render()</code></p>
+</li>
+<li><p><code>componentDidMount()</code></p>
+</li>
+</ol>
+</li>
+<li><p>更新阶段: 由组件内部this.setSate()或父组件重新render触发</p>
+<ol start="7">
+<li><p><code>getDerivedStateFromProps()</code></p>
+</li>
+<li><p><code>shouldComponentUpdate()</code></p>
+</li>
+<li><p><code>render()</code></p>
+</li>
+<li><p><code>getSnapshotBeforeUpdate()</code></p>
+</li>
+<li><p><code>componentDidUpdate()</code></p>
+</li>
+</ol>
+</li>
+<li><p>卸载组件: 由<code>ReactDOM.unmountComponentAtNode()</code>触发<code>componentWillUnmount()</code></p>
+</li>
+</ol>
+<p>PS.手动控制组件更新</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">shouldComponentUpdate</span>(<span class="params"></span>)&#123;    </span><br><span class="line">  <span class="comment">//do something    </span></span><br><span class="line">  reture <span class="literal">true</span> <span class="comment">// 或者填写false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="八、官方脚手架"><a href="#八、官方脚手架" class="headerlink" title="八、官方脚手架"></a>八、官方脚手架</h3><p><a target="_blank" rel="noopener" href="https://reactjs.org/docs/create-a-new-react-app.html#create-react-app">Create a New React App – React (reactjs.org)</a> 安装 <code>npm install -s create-react-app</code> 使用 <code>npx create-react-app myapp</code></p>
+<h3 id="九、网络请求"><a href="#九、网络请求" class="headerlink" title="九、网络请求"></a>九、网络请求</h3><ul>
+<li>axios</li>
+<li>fetch</li>
+</ul>
+<h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3><p><a target="_blank" rel="noopener" href="http://www.axios-js.com/">axios中文网</a> 简单使用实例</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">axios.<span class="title function_">get</span>(<span class="string">`/api1/users?q=<span class="subst">$&#123;keyWord&#125;</span>`</span>).<span class="title function_">then</span>(</span><br><span class="line">  <span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 成功请求后返回的响应</span></span><br><span class="line">    <span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">//请求失败后的处理</span></span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/fetch">MDN:WorkerOrGlobalScope.fetch()</a> 实例</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fetch.<span class="title function_">get</span>(<span class="string">`/api1/users?q=<span class="subst">$&#123;keyWord&#125;</span>`</span>)</span><br><span class="line">  .<span class="title function_">then</span>( <span class="function"><span class="params">resp</span> =&gt;</span> &#123;&#125; err =&gt; &#123;&#125;)</span><br><span class="line">  .<span class="title function_">then</span>( <span class="title function_">resp</span>(data) =&gt; &#123;&#125; err =&gt; &#123;&#125;)</span><br><span class="line">  <span class="comment">// async await语法</span></span><br><span class="line">  <span class="title function_">async</span>() =&gt; &#123;</span><br><span class="line">      <span class="keyword">const</span> response= <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">`/api1/search/users2?q=<span class="subst">$&#123;keyWord&#125;</span>`</span>)</span><br><span class="line">      <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">json</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      </div>
+
+      <!-- Article Footer -->
+      <footer class="article-footer">
+        <div class="footer-tags">
+          
+            <div class="tag-list">
+              <span class="tag-label">Topics</span>
+              
+                <a href="/tags/React/" class="chip chip-topic">React</a>
+              
+            </div>
+          
+        </div>
+
+        <!-- Next Article -->
+        
+        <div class="next-article card">
+          <span class="card-eyebrow">Next up</span>
+          <h3 class="next-title"><a href="/passages/midou-notes/React/Redux%E3%80%81react-redux/">Redux、react-redux</a></h3>
+          <a href="/passages/midou-notes/React/Redux%E3%80%81react-redux/" class="btn btn-primary">Read next</a>
+        </div>
+        
+      </footer>
+    </div>
+
+    <!-- Support Rail -->
+    <aside class="support-rail">
+      
+
+      <div class="sidebar-author-card card">
+        <span class="card-label">Author</span>
+        <span class="author-name">米豆</span>
+        
+          <p class="author-bio">万物终归一站</p>
+        
+      </div>
+
+      <div class="reading-stats-card card">
+        <span class="card-label">Reading path</span>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-label">Published</span>
+            <span class="stat-value">14 10月 2025</span>
+          </div>
+          
+          <div class="stat-item">
+            <span class="stat-label">Topics</span>
+            <div class="stat-tags">
+              
+                <a href="/tags/React/" class="chip chip-topic">React</a>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </aside>
+  </div>
+</article>
+
+<div class="back-to-top" id="back-to-top">
+  <svg class="progress-ring" viewBox="0 0 44 44">
+    <circle class="progress-ring-bg" cx="22" cy="22" r="20" fill="none" stroke-width="2"/>
+    <circle class="progress-ring-fill" cx="22" cy="22" r="20" fill="none" stroke-width="2" stroke-dasharray="125.6" stroke-dashoffset="125.6"/>
+  </svg>
+  <span class="back-to-top-icon">&uarr;</span>
+</div>
+
+
+    </main>
+    <footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-note">集合 &nbsp;/&nbsp; 2026 &nbsp;/&nbsp; 米豆的个人博客，分享前端开发、Linux、计算机网络与 AI 学习笔记，记录技术实践和生活感想。</p>
+  </div>
+</footer>
+
+  </div>
+  <script>
+(function() {
+  // Dark mode toggle
+  var toggle = document.getElementById('theme-toggle');
+  var html = document.documentElement;
+
+  function getTheme() {
+    var stored = localStorage.getItem('theme');
+    if (stored) return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function setTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }
+
+  setTheme(getTheme());
+
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      var current = html.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  // Back to top with scroll progress
+  var btn = document.getElementById('back-to-top');
+  if (btn) {
+    var fill = btn.querySelector('.progress-ring-fill');
+    var circumference = 2 * Math.PI * 20; // r=20
+
+    window.addEventListener('scroll', function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var progress = docHeight > 0 ? scrollTop / docHeight : 0;
+
+      // Update progress ring
+      fill.style.strokeDashoffset = circumference * (1 - progress);
+
+      // Show/hide button
+      if (scrollTop > 300) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    });
+
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+})();
+</script>
+
+
+  
+<link rel="stylesheet" href="/css/glightbox.min.css">
+
+  
+<script src="/js/glightbox.min.js"></script>
+
+  
+  <script>
+    const glightBox = new GLightbox({"touchNavigation":true,"loop":false,"zoomable":true,"draggable":true,"openEffect":"zoom","closeEffect":"zoom","slideEffect":"slide"})
+  </script>
+
+
+
+</body>
+</html>
